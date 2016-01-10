@@ -1,5 +1,5 @@
 {
-    "ver": "0.0.1",
+    "ver": "0.0.2",
     "authors": [
         "fangfang"
     ],
@@ -48,7 +48,11 @@
                 {
 		    "input_parameter": "read_library_name",
           	    "target_property": "read_library_name"
-                }
+                },
+		{
+		    "input_parameter": "output_contigset_name",
+          	    "target_property": "output_contigset_name"
+		}
             ],
             "output_mapping": [
                 {

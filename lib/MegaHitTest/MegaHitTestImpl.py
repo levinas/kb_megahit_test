@@ -1,11 +1,11 @@
 #BEGIN_HEADER
-#END_HEADER
-
 import os
 import sys
 import uuid
 
 from biokbase.workspace.client import Workspace as workspaceService
+#END_HEADER
+
 
 class MegaHitTest:
     '''
@@ -41,9 +41,16 @@ class MegaHitTest:
         # return variables are: output
         #BEGIN run_megahit
 
+
         ws = workspaceService(self.workspaceURL, token=ctx['token'])
+        objects = ws.get_objects([{'ref': params['workspace_name']+'/'+params['read_library_name']}])
+
+        data = objects[0]['data']
+        info = objects[0]['info']
+        type_name = info[2].split('.')[1].split('-')[0]
 
         report = 'report will go here'
+        report += 'input data type: '+type_name
         reportObj = {
             'objects_created':[{'ref':params['workspace_name']+'/'+params['output_contigset_name'], 'description':'Assembled contigs'}],
             'text_message':report

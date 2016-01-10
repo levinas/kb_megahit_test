@@ -52,7 +52,8 @@ class MegaHitTest:
         report = 'report will go here'
         report += 'input data type: '+type_name
         reportObj = {
-            'objects_created':[{'ref':params['workspace_name']+'/'+params['output_contigset_name'], 'description':'Assembled contigs'}],
+            # 'objects_created':[{'ref':params['workspace_name']+'/'+params['output_contigset_name'], 'description':'Assembled contigs'}],
+            'objects_created':[],
             'text_message':report
         }
 

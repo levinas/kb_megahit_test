@@ -56,6 +56,12 @@ class MegaHitTest:
             'text_message':report
         }
 
+        provenance = [{}]
+        if 'provenance' in ctx:
+            provenance = ctx['provenance']
+        # add additional info to provenance here, in this case the input data object reference
+        provenance[0]['input_ws_objects']=[params['workspace_name']+'/'+params['read_library_name']]
+
         reportName = 'megahit_report_'+str(hex(uuid.getnode()))
         report_obj_info = ws.save_objects({
                 'id':info[6],
